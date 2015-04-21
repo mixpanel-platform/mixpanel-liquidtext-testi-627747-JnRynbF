@@ -24,11 +24,11 @@
     
     var propertyList = [];
     var propertyQuery = MP.api.people().done(function(peopleResults){
-      console.log(peopleResults.values);
-     // for (var i = 0; i < peopleResults.values["results"]; i++){
-       // console.log(i);
-        //console.log(peopleResults.values["results"][i]);
-      //}
+      console.log(peopleResults.values()["values"]);
+      for (var i = 0; i < peopleResults.values()["results"]; i++){
+        console.log(i);
+        console.log(peopleResults.values["results"][i]);
+      }
       
       }) 
     

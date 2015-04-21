@@ -11,7 +11,7 @@
     
     // pick date
      var dateSelector = $('<div></div>').appendTo('body').MPDatepicker();
-      $('#dateSelector').MPDatepicker().on('change', function(dateRange) {
+      dateSelector.on('change', function(dateRange) {
       console.log(dateRange.from);
       console.log(dateRange.to);
       });

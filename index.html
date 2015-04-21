@@ -23,8 +23,8 @@
     //pick property
     
     var propertyList = [];
-    var propertyQuery = MP.api.people().done(function(people){
-      console.log(people.values);
+    var propertyQuery = MP.api.people().done(function(peopleResults){
+      console.log(peopleResults.values);
       //for (var i = 0; i < people.values["results"]; i++){
         //console.log(people.values["results"][i]);
       //}

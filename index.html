@@ -69,6 +69,7 @@
        var updatedTimeParam = ' and datetime(' + epochFrom + ') <= properties["$created"] and datetime(' + epochTo + ') >= properties["$created"])';
        var currentWhere = params.where;
        var newWhere = currentWhere + updatedTimeParam;
+       console.log(newWhere);
        params.where = newWhere;
   
      }

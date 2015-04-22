@@ -7,9 +7,12 @@
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
   </head>
   <body class="mixpanel-platform-body">
+    <table style="width:100%">
+    </table>
+    
     <script>
     
-    // pick date
+    // pick date ad updates where Params by converting date to Epoch timestamp
      var params = {
        where: '(defined (properties["nbrSessions"]))'
      };
@@ -30,7 +33,7 @@
         }
       );
       
-    //updating params to match date and property
+    // creates new Array for results
     var usersAndSessions = {};
     
     
@@ -46,6 +49,8 @@
         usersAndSessions[name] = nbrSessions;
       }
       console.log(usersAndSessions);
+      
+      //Sorts users in descending order of number of sessions
       var sortedUsers = {};
       var length = Object.keys(usersAndSessions).length;
       for (var i = 0; i < length; i++ ){
@@ -53,9 +58,13 @@
         sortedUsers[max_user] = usersAndSessions[max_user];
         delete usersAndSessions[max_user];
       }
-      for (var i = 0; i < Object.keys(sortedUsers).length; i++){
-        document.write(sortedUsers[i]);
-      }
+      //displays data
+    var barChart = $('<div></div>').appendTo('body').MPChart({chartType: 'bar', highchartsOptions: {
+    }});                                // Create a bar chart
+    lineChart.MPChart('setData', sortedUsers); // Set the chart's data
+    });
+     
+     
       });
     
    

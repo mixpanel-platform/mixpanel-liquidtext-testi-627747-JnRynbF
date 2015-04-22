@@ -64,6 +64,8 @@
        };
        var fromString = dateRange.from.toString();
        console.log(fromString);
+       var testingString = fromString.split('-')[0];
+       console.log(testingString);
        var epochFrom = Date.UTC(fromString.split('-')[0], fromString.split('-')[1], fromString.split('-')[2].split('T')[0], fromString.split('T')[1].split(':')[0],  fromString.split('T')[1].split(':')[1],  fromString.split('T')[1].split(':')[2]);
        epochFrom = epochFrom/1000 + (4*60);
        console.log(epochFrom);

@@ -27,7 +27,7 @@
     
     //querying People for data
     var peopleQuery = MP.api.people(params).done(function(allPeople)
-        console.log(allPeople.values()["results"]);
+        console.log(allPeople.values());
     
     )
     // Query Mixpanel people to return everyone cretaed in a certain timeframe

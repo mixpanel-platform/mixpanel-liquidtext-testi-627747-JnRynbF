@@ -51,9 +51,7 @@
      var dateSelector = $('#datePicker').MPDatepicker();
       dateSelector.on('change', function(e, dateRange) {
         var newWhereParam = updateParams(dateRange).done(function(newWhere){
-          params = {
-            where: newWhereParam
-          };
+          params.where = newWhereParam;
           runQuery();
 
         });
@@ -68,7 +66,8 @@
        var updatedTimeParam = ' and datetime(' + epochFrom + ') <= properties["$created"] and datetime(' + epochTo + ') >= properties["$created"])';
        var currentWhere = params.where;
        var newWhere = currentWhere + updatedTimeParam;
-       return newWhere
+       params.where = newWhere;
+  
      }
   
     

@@ -39,7 +39,7 @@
       console.log(usersAndSessions);
       var sortedUsers = {};
       console.log("this is my length");
-      conosle.log(Object.keys(usersAndSessions).length);
+      console.log(Object.keys(usersAndSessions).length);
       for (var i = 0; i < Object.keys(usersAndSessions).length; i++ ){
         var max_user = _.invert(usersAndSessions)[_.max(usersAndSessions)];
         sortedUsers[max_user] = usersAndSessions[max_user];

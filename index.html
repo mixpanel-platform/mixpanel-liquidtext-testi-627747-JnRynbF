@@ -24,7 +24,8 @@
         var epochTo = epochTo/1000;
         var updatedTimeParam = ' and (datetime(' + epochTo + ') > properties["$created"] and datetime(' + epochFrom + ') < properties["$created"]'
         var currentWhere = params.where;
-        console.log(currentWhere);
+        var newWhere = currentWhere + updatedTimeParam;
+        console.log(newWhere);
         
         }
       );

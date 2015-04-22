@@ -34,9 +34,10 @@
         console.log(name);
         var nbrSessions = peopleObjects[i]["$properties"]["nbrSessions"];
         console.log(nbrSessions);
+        usersSortedBySession[name] = nbrSessions;
       }
     }
-        
+    console.log(usersSortedBySession);
     
     )
     // Query Mixpanel people to return everyone cretaed in a certain timeframe

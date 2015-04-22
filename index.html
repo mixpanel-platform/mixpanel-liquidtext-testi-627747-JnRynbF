@@ -62,7 +62,8 @@
        params = {
        where: '(defined (properties["nbrSessions"])'
        };
-       
+       var testingString = dateRange.from.split('-')[0];
+       console.log(testingString);
        var epochFrom = Date.UTC(dateRange.from.split('-')[0], dateRange.from.split('-')[1], dateRange.from.split('-')[2].split('T')[0], dateRange.from.split('T')[1].split(':')[0],  dateRange.from.split('T')[1].split(':')[1],  dateRange.from.split('T')[1].split(':')[2]);
        epochFrom = epochFrom/1000 + (4*60);
        console.log(epochFrom);

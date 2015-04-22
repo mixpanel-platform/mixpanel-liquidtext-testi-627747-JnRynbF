@@ -59,6 +59,9 @@
   
   
      var updateParams = function(dateRange) {
+       params = {
+       where: '(defined (properties["nbrSessions"])'
+       };
        var epochFrom = dateRange.from.getTime();
        epochFrom = epochFrom/1000;
        var epochTo = dateRange.to.getTime();

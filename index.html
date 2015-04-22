@@ -11,10 +11,8 @@
  <div id = "barChart"> <table style="width:100%"></table></div>
     
     <script>
-    var barchart = $('barChart').appendTo('body').MPChart({
+    var barchart = $('#barChart').MPChart({
       chartType: 'bar', 
-      highchartsOptions: {
-      }
     });
     
     // pick date ad updates where Params by converting date to Epoch timestamp

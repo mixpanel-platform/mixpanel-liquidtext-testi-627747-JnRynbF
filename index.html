@@ -30,8 +30,10 @@
       console.log(peopleResults.values()["results"]);
       var peopleObjects = peopleResults.values()["results"];
       for (var i = 0; i < Object.keys(peopleObjects).length; i++){
-        console.log(peopleObjects[i]["$properties"]["nbrSessions"]);
-        
+        var name = peopleObjects[i]["$properties"]["$first_name"];
+        console.log(name);
+        var nbrSessions = peopleObjects[i]["$properties"]["nbrSessions"];
+        console.log(nbrSessions);
       }
     }
         

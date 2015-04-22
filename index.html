@@ -53,8 +53,11 @@
         sortedUsers[max_user] = usersAndSessions[max_user];
         delete usersAndSessions[max_user];
       }
-      console.log("this is my sorted list");
-      console.log(sortedUsers);
+      $('<div></div>').appendTo('body').MPTable({
+        data: sortedUsers,
+        firstColHeader: 'Users sorted by NbrSessions'
+        
+      });
       });
     
    

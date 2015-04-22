@@ -37,20 +37,17 @@
         usersAndSessions[name] = nbrSessions;
       }
       console.log(usersAndSessions);
-      })
+      var sortedUsers = {};
+      for (var i = 0; i < Object.keys(usersAndSessions).length; i++ ){
+        var max_user = _.invert(usersAndSessions)[_.max(usersAndSessions)];
+        sortedUsers[max_user] = usersAndSessions[max_user];
+        delete usersAndSessions[max_user];
+      }
+      console.log("this is my sorted list");
+      console.log(sortedUsers);
+      });
     
-    // function sortArray (array) {
-    //   var sortedArray = [];
-    //   for (var key in array){
-    //     sortedArray.push({
-    //       'key': key,
-    //       'value': array[key]
-    //     });
-    //     sortedArray.sort(function(a,b) {return a[1] - b[1]});
-    //   }
-    //   return sortedArray
-    // }
-    
+   
    
     // Query Mixpanel people to return everyone cretaed in a certain timeframe
     

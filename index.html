@@ -53,11 +53,9 @@
         sortedUsers[max_user] = usersAndSessions[max_user];
         delete usersAndSessions[max_user];
       }
-      $('<div></div>').appendTo('body').MPTable({
-        data: sortedUsers,
-        firstColHeader: 'Users sorted by NbrSessions as an example'
-  
-      });
+      for (var i = 0; i < Object.keys(sortedUsers).length; i++){
+        document.write(sortedUsers[i]);
+      }
       });
     
    

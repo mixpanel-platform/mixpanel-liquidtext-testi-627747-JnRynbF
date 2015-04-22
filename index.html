@@ -58,14 +58,14 @@
       });
   
   
-     var updateParams = function(dateRange){
+     var updateParams = function(dateRange) {
        var epochFrom = dateRange.from.getTime();
        epochFrom = epochFrom/1000;
        var epochTo = dateRange.to.getTime();
        var updatedTimeParam = ' and datetime(' + epochFrom + ') <= properties["$created"] and datetime(' + epochTo + ') >= properties["$created"])';
        var currentWhere = params.where;
        var newWhere = currentWhere + updatedTimeParam;
-       return newWhere
+       return newWhere;
      }
   
     

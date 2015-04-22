@@ -26,6 +26,32 @@
         var updatedTimeParam = ' and (datetime(' + epochTo + ') > properties["$created"] and datetime(' + epochFrom + ') < properties["$created"]'
         var currentWhere = params.where;
         var newWhere = currentWhere + updatedTimeParam;
+        var usersAndSessions = {};
+    
+    
+    //querying People for data
+    var peopleQuery = MP.api.people(params).done(function(peopleResults){
+      var peopleObjects = peopleResults.values()["results"];
+      for (var i = 0; i < Object.keys(peopleObjects).length; i++){
+        var name = peopleObjects[i]["$properties"]["$first_name"];
+        var nbrSessions = peopleObjects[i]["$properties"]["nbrSessions"];
+        usersAndSessions[name] = nbrSessions;
+      }
+
+      //Sorts users in descending order of number of sessions
+      var sortedUsers = {};
+      var length = Object.keys(usersAndSessions).length;
+      for (var i = 0; i < length; i++ ){
+        var max_user = _.invert(usersAndSessions)[_.max(usersAndSessions)];
+        sortedUsers[max_user] = usersAndSessions[max_user];
+        delete usersAndSessions[max_user];
+      }
+      //displays data
+    var barChart = $('<div></div>').appendTo('body').MPChart({chartType: 'bar', highchartsOptions: {
+    }});                                // Create a bar chart
+    barChart.MPChart('setData', sortedUsers); // Set the chart's data
+    });
+     
         }
       );
       

@@ -19,7 +19,7 @@
       );
       
     //updating params to match date and property
-    var usersSortedBySession = {};
+    var usersAndSessions = {};
     params = {
       where: '(defined (properties["nbrSessions"]))'
       
@@ -34,12 +34,21 @@
         console.log(name);
         var nbrSessions = peopleObjects[i]["$properties"]["nbrSessions"];
         console.log(nbrSessions);
-        usersSortedBySession[name] = nbrSessions;
+        usersAndSessions[name] = nbrSessions;
       }
+      console.log(usersAndSessions);
+      var usersSortedBySession = [];
+      for (var name in usersAndSessions){
+        usersSortedBySession.push([name, usersAndSessions[name]]);
+         usersSortedBySession.sort(function(a, b) {return a[1] - b[1]})
+      }
+     
       console.log(usersSortedBySession);
     }
 
     )
+    
+   
     // Query Mixpanel people to return everyone cretaed in a certain timeframe
     
     //pick property

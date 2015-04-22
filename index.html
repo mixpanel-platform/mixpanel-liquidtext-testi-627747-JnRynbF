@@ -28,7 +28,8 @@
     //querying People for data
     var peopleQuery = MP.api.people(params).done(function(peopleResults){
       console.log(peopleResults.values()["results"]);
-      console.log(Object.keys(peopleResults.values()["results"].length))
+      var peopleObjects = peopleResults.values()["results"];
+      console.log(peopleObjects);
       //for (var i = 0; i < Object.keys(peopleWithNbrSessions).length; i++){
          //console.log(i);
 

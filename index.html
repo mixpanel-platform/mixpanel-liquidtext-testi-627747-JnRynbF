@@ -17,7 +17,7 @@
     
     // pick date ad updates where Params by converting date to Epoch timestamp
      var params = {
-       where: '(defined (properties["nbrSessions"]))'
+       where: '(defined (properties["nbrSessions"])'
      };
      
      var runQuery = function () {
@@ -54,7 +54,7 @@
         epochFrom = epochFrom/1000;
         var epochTo = dateRange.to.getTime();
         epochTo = epochTo/1000 + 86400;
-        var updatedTimeParam = ' and datetime(' + epochFrom + ') <= properties["$created"] and datetime(' + epochTo + ') >= properties["$created"]'
+        var updatedTimeParam = ' and datetime(' + epochFrom + ') <= properties["$created"] and datetime(' + epochTo + ') >= properties["$created"])'
         var currentWhere = params.where;
         var newWhere = currentWhere + updatedTimeParam;
         console.log(newWhere);

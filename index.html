@@ -15,6 +15,8 @@
       dateSelector.on('change', function(e, dateRange) {
         console.log(dateRange.from);
         console.log(dateRange.to);
+        var epochFrom = dateRange.from.getTime();
+        conole.log(epochFrom);
         }
       );
       

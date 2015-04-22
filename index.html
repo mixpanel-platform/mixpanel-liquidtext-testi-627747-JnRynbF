@@ -54,7 +54,7 @@
       for (var key in array){
         sortedArray.push({
           'key': key,
-          'value': value
+          'value': array[key]
         });
         sortedArray.sort(function(a,b) {return a[1] - b[1]});
       }

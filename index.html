@@ -38,14 +38,11 @@
       }
       console.log(usersAndSessions);
       var sortedUsers = {};
-      console.log("this is my length");
-      console.log(Object.keys(usersAndSessions).length);
-      for (var i = 0; i < Object.keys(usersAndSessions).length; i++ ){
+      var length = Object.keys(usersAndSessions).length;
+      for (var i = 0; i < length; i++ ){
         var max_user = _.invert(usersAndSessions)[_.max(usersAndSessions)];
         sortedUsers[max_user] = usersAndSessions[max_user];
-        console.log(i);
         delete usersAndSessions[max_user];
-
       }
       console.log("this is my sorted list");
       console.log(sortedUsers);

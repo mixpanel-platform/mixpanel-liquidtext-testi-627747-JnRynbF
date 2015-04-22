@@ -50,20 +50,23 @@
     
      var dateSelector = $('#datePicker').MPDatepicker();
       dateSelector.on('change', function(e, dateRange) {
-        var epochFrom = dateRange.from.getTime();
-        epochFrom = epochFrom/1000;
-        var epochTo = dateRange.to.getTime();
-        epochTo = epochTo/1000 + 86400;
-        var updatedTimeParam = ' and datetime(' + epochFrom + ') <= properties["$created"] and datetime(' + epochTo + ') >= properties["$created"])'
-        var currentWhere = params.where;
-        var newWhere = currentWhere + updatedTimeParam;
-        console.log(newWhere);
-        runQuery();
-        }
-      );
-      
+        var newWhere = updateParams(dateRange).done(function){
+          runQuery();
+
+        };
+       
+      });
   
-     
+  
+     var updateParams = function(dateRange){
+       var epochFrom = dateRange.from.getTime();
+       epochFrom = epochFrom/1000;
+       var epochTo = dateRange.to.getTime();
+       var updatedTimeParam = ' and datetime(' + epochFrom + ') <= properties["$created"] and datetime(' + epochTo + ') >= properties["$created"])';
+       var currentWhere = params.where;
+       var newWhere = currentWhere + updatedTimeParam;
+       return newWhere
+     }
   
     
    

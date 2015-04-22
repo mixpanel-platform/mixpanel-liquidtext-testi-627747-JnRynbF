@@ -43,8 +43,9 @@
           'key': name,
           'value': usersAndSessions[name]
         });
-        usersSortedBySession.sort(function(a, b) {return b[1] - a[1]});
+        usersSortedBySession.sort(function(a, b) {return b[1] - a[1]}).;
       }
+      usersSortedBySession.reverse();
       console.log("this is my sorted array");
       console.log(usersSortedBySession);
       })

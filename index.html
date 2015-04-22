@@ -7,7 +7,7 @@
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
   </head>
   <body class="mixpanel-platform-body">
- 
+ <div id = "datePicker"></div>
  <div id = "barChart"> <table style="width:100%"></table></div>
     
     <script>
@@ -20,7 +20,7 @@
        where: '(defined (properties["nbrSessions"]))'
      };
      
-     var dateSelector = $('<div></div>').appendTo('body').MPDatepicker();
+     var dateSelector = $(#datePicker).MPDatepicker();
       dateSelector.on('change', function(e, dateRange) {
         var epochFrom = dateRange.from.getTime();
         epochFrom = epochFrom/1000;

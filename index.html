@@ -13,6 +13,7 @@
      var params = {
        where: '(defined (properties["nbrSessions"]))'
      };
+     
      var dateSelector = $('<div></div>').appendTo('body').MPDatepicker();
       dateSelector.on('change', function(e, dateRange) {
         console.log(dateRange.from);
@@ -21,9 +22,9 @@
         epochFrom = epochFrom/1000;
         var epochTo = dateRange.to.getTime();
         var epochTo = epochTo/1000;
-        params = {
-          where: ' and (datetime(' + epochTo + ') > properties["$created"] and datetime(' + epochFrom + ') < properties["$created"]'
-        }
+        var updatedTimeParam = ' and (datetime(' + epochTo + ') > properties["$created"] and datetime(' + epochFrom + ') < properties["$created"]'
+        params[where] = params[where].concat(updatedTimeParam);  
+        console.log(params[where]);
         }
       );
       

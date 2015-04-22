@@ -7,11 +7,10 @@
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
   </head>
   <body class="mixpanel-platform-body">
-    <table style="width:100%">
-    </table>
+ <table style="width:100%" id = "barChart"> </table>
     
     <script>
-    
+    var barchart = 
     // pick date ad updates where Params by converting date to Epoch timestamp
      var params = {
        where: '(defined (properties["nbrSessions"]))'
@@ -52,7 +51,7 @@
         delete usersAndSessions[max_user];
       }
       //displays data
-    var barChart = $('<div></div>').appendTo('body').MPChart({chartType: 'bar', highchartsOptions: {
+    var barChart = $('barChart').appendTo('body').MPChart({chartType: 'bar', highchartsOptions: {
     }});                                // Create a bar chart
     barChart.MPChart('setData', sortedUsers); // Set the chart's data
     });

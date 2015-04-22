@@ -20,7 +20,7 @@
        where: '(defined (properties["nbrSessions"]))'
      };
      
-     var dateSelector = $(#datePicker).MPDatepicker();
+     var dateSelector = $('#datePicker').MPDatepicker();
       dateSelector.on('change', function(e, dateRange) {
         var epochFrom = dateRange.from.getTime();
         epochFrom = epochFrom/1000;

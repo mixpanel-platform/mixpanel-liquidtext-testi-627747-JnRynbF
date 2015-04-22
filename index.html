@@ -10,22 +10,26 @@
     <script>
     
     // pick date
-     var params = {};
+     var params = {
+       where: '(defined (properties["nbrSessions"]))'
+     };
      var dateSelector = $('<div></div>').appendTo('body').MPDatepicker();
       dateSelector.on('change', function(e, dateRange) {
         console.log(dateRange.from);
         console.log(dateRange.to);
         var epochFrom = dateRange.from.getTime();
-        console.log(epochFrom);
+        epochFrom = epochFrom/1000;
+        var epochTo = dateRange.to.getTime();
+        var epochTo = epochTo/1000;
+        params = {
+          where: ' and (datetime(' + epochTo + ') > properties["$created"] and datetime(' + epochFrom + ') < properties["$created"]'
+        }
         }
       );
       
     //updating params to match date and property
     var usersAndSessions = {};
-    params = {
-      where: '(defined (properties["nbrSessions"]))'
-      
-    }
+    
     
     //querying People for data
     var peopleQuery = MP.api.people(params).done(function(peopleResults){

@@ -37,29 +37,28 @@
         usersAndSessions[name] = nbrSessions;
       }
       console.log(usersAndSessions);
-      //var usersSortedBySession = [];
-      //for (var name in usersAndSessions){
-        //usersSortedBySession.push({
-          //'key': name,
-          //'value': usersAndSessions[name]
-      //  });
-         //usersSortedBySession.sort(function(a, b) {return a[1] - b[1]})
-         var usersSortedBySession = sortArray(usersAndSessions);
+      var usersSortedBySession = [];
+      for (var name in usersAndSessions){
+        usersSortedBySession.push({
+          'key': name,
+          'value': usersAndSessions[name]
+        });
+        usersSortedBySession.sort(function(a, b) {return a[1] - b[1]})
+      }
       console.log(usersSortedBySession);
-
       })
     
-    function sortArray (array) {
-      var sortedArray = [];
-      for (var key in array){
-        sortedArray.push({
-          'key': key,
-          'value': array[key]
-        });
-        sortedArray.sort(function(a,b) {return a[1] - b[1]});
-      }
-      return sortedArray
-    }
+    // function sortArray (array) {
+    //   var sortedArray = [];
+    //   for (var key in array){
+    //     sortedArray.push({
+    //       'key': key,
+    //       'value': array[key]
+    //     });
+    //     sortedArray.sort(function(a,b) {return a[1] - b[1]});
+    //   }
+    //   return sortedArray
+    // }
     
    
     // Query Mixpanel people to return everyone cretaed in a certain timeframe

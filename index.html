@@ -50,10 +50,10 @@
     
      var dateSelector = $('#datePicker').MPDatepicker();
       dateSelector.on('change', function(e, dateRange) {
-        var newWhereParam = updateParams(dateRange).done(function(){
-          runQuery();
+        var newWhereParam = updateParams(dateRange);
+        runQuery();
 
-        });
+      
        
       });
   

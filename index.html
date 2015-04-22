@@ -11,7 +11,12 @@
  <div id = "barChart"> <table style="width:100%"></table></div>
     
     <script>
-    var barchart = 
+    var barchart = $('barChart').MPChart({
+      chartType: 'bar', 
+      highchartsOptions: {
+      }
+    });
+    
     // pick date ad updates where Params by converting date to Epoch timestamp
      var params = {
        where: '(defined (properties["nbrSessions"]))'
@@ -51,9 +56,7 @@
         sortedUsers[max_user] = usersAndSessions[max_user];
         delete usersAndSessions[max_user];
       }
-      //displays data
-    var barChart = $('barChart').appendTo('body').MPChart({chartType: 'bar', highchartsOptions: {
-    }});                                // Create a bar chart
+      //displays data                           
     barChart.MPChart('setData', sortedUsers); // Set the chart's data
     });
      

@@ -62,7 +62,7 @@
       params = {
        where: '(defined (properties["nbrSessions"])'
       };
-      var from = dateRange.from.getTime;
+      var from = dateRange.from.getTime();
       from = from/1000; 
       var to = dateRange.to.getTime();
       to = to/1000 + 86400 ;

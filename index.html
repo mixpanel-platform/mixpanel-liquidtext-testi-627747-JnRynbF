@@ -65,8 +65,8 @@
       var from = dateRange.from.getTime;
       from = from/1000; 
       var to = dateRange.to.getTime();
-      to = epochTo/1000 + 86400 ;
-      var updatedTimeParam = ' and datetime(' + epochFrom + ') <= properties["$created"] and datetime(' + epochTo + ') >= properties["$created"])';
+      to = to/1000 + 86400 ;
+      var updatedTimeParam = ' and datetime(' + from + ') <= properties["$created"] and datetime(' + to + ') >= properties["$created"])';
       var currentWhere = params.where;
       var newWhere = currentWhere + updatedTimeParam;
       params.where = newWhere;
